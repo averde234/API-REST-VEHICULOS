@@ -73,7 +73,7 @@ exports.getVehiculosByMaxPrecio = async (req, res) => {
   try {
     const { maxprecio } = req.params;
     const result = await db.execute({
-      sql: "SELECT * FROM vehiculos WHERE precio <= ?",
+      sql: "SELECT * FROM vehiculos WHERE precio >= ?",
       args: [maxprecio],
     });
     res.json(result.rows);
